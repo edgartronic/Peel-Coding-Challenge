@@ -45,6 +45,7 @@
 
     self.programTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.programTableView.backgroundColor = [UIColor clearColor];
+    self.programTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
 }
 
@@ -69,7 +70,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"SectionCell";
-    NSString *sectionName;
+    NSString *sectionName = [NSString stringWithFormat: @"%@", [arr objectAtIndex: indexPath.row]];
+    UILabel *sectionLabel;
+    UIScrollView *sectionScroll;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
@@ -77,14 +80,25 @@
         
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
         cell.backgroundColor = [UIColor clearColor];
-
-        sectionName = [NSString stringWithFormat: @"%@", [arr objectAtIndex: indexPath.row]];
-        cell.textLabel.text = sectionName;
-
+        
+        sectionLabel = [[UILabel alloc] initWithFrame: CGRectMake(self.view.frame.origin.x + 10, self.view.frame.origin.y + 5, self.view.frame.size.width - 20, 30)];
+        sectionLabel.tag = 1234;
+        sectionLabel.text = sectionName;
+        sectionLabel.backgroundColor = [UIColor clearColor];
+        sectionLabel.textColor = YELLOW_COLOR;
+        sectionLabel.font = [UIFont italicSystemFontOfSize: 16];
+        
+        sectionScroll = [[UIScrollView alloc] initWithFrame: CGRectMake(self.view.frame.origin.x + 10, self.view.frame.origin.y + 5 + sectionLabel.frame.size.height, self.view.frame.size.width - 20, 150)];
+        sectionScroll.tag = 5678;
+        sectionScroll.backgroundColor = [UIColor clearColor];
+        
+        [cell.contentView addSubview: sectionLabel];
+        [cell.contentView addSubview: sectionScroll];
         
     } else {
         
-
+        sectionLabel = (UILabel *)[self.view viewWithTag: 1234];
+        sectionScroll = (UIScrollView *)[self.view viewWithTag: 5678];
     }
     
     return cell;
