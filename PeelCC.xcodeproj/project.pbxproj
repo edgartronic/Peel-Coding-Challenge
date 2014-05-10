@@ -26,7 +26,6 @@
 		3D248CA4191EC24A00583553 /* App_Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3D248CA3191EC24A00583553 /* App_Background.jpg */; };
 		3D248CA6191EC5FE00583553 /* JSON-Response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3D248CA5191EC5FE00583553 /* JSON-Response.txt */; };
 		3D248CA8191EC62300583553 /* Show_Tile_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D248CA7191EC62300583553 /* Show_Tile_Background.png */; };
-		3D248CAB191EC68500583553 /* PCThumbnailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D248CAA191EC68500583553 /* PCThumbnailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +64,6 @@
 		3D248CA3191EC24A00583553 /* App_Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = App_Background.jpg; sourceTree = "<group>"; };
 		3D248CA5191EC5FE00583553 /* JSON-Response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "JSON-Response.txt"; sourceTree = "<group>"; };
 		3D248CA7191EC62300583553 /* Show_Tile_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Show_Tile_Background.png; sourceTree = "<group>"; };
-		3D248CA9191EC68500583553 /* PCThumbnailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCThumbnailViewController.h; sourceTree = "<group>"; };
-		3D248CAA191EC68500583553 /* PCThumbnailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCThumbnailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +133,6 @@
 				3D248C6E191EBC1C00583553 /* Supporting Files */,
 				3D248C9F191EC16000583553 /* PCNavController.h */,
 				3D248CA0191EC16000583553 /* PCNavController.m */,
-				3D248CA9191EC68500583553 /* PCThumbnailViewController.h */,
-				3D248CAA191EC68500583553 /* PCThumbnailViewController.m */,
 			);
 			path = PeelCC;
 			sourceTree = "<group>";
@@ -288,7 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D248CA1191EC16000583553 /* PCNavController.m in Sources */,
-				3D248CAB191EC68500583553 /* PCThumbnailViewController.m in Sources */,
 				3D248C74191EBC1C00583553 /* main.m in Sources */,
 				3D248C81191EBC1C00583553 /* PCViewController.m in Sources */,
 				3D248C78191EBC1C00583553 /* PCAppDelegate.m in Sources */,
@@ -512,6 +506,7 @@
 				3D248C9B191EBC1D00583553 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D248C9C191EBC1D00583553 /* Build configuration list for PBXNativeTarget "PeelCCTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +515,7 @@
 				3D248C9E191EBC1D00583553 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

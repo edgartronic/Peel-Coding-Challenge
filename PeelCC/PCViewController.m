@@ -7,7 +7,6 @@
 //
 
 #import "PCViewController.h"
-#import "PCThumbnailViewController.h"
 
 @interface PCViewController () {
     NSArray *arr;
@@ -91,6 +90,8 @@
         sectionScroll = [[UIScrollView alloc] initWithFrame: CGRectMake(self.view.frame.origin.x + 10, self.view.frame.origin.y + 5 + sectionLabel.frame.size.height, self.view.frame.size.width - 20, 150)];
         sectionScroll.tag = 5678;
         sectionScroll.backgroundColor = [UIColor clearColor];
+        
+
         
         [cell.contentView addSubview: sectionLabel];
         [cell.contentView addSubview: sectionScroll];
