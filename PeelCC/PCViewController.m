@@ -7,6 +7,7 @@
 //
 
 #import "PCViewController.h"
+#import "PCThumbnailView.h"
 
 @interface PCViewController () {
     NSArray *arr;
@@ -92,6 +93,9 @@
         sectionScroll.backgroundColor = [UIColor clearColor];
         
 
+        PCThumbnailView *thumbnail = [[PCThumbnailView alloc] initWithURLString: @"http://image.zelfy.com/uscanadaimages/db_photos/showcards/h5/AllPhotos/9536756/p9536756_b_h5_ab.jpg"];
+        
+        [sectionScroll addSubview: thumbnail];
         
         [cell.contentView addSubview: sectionLabel];
         [cell.contentView addSubview: sectionScroll];
