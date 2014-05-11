@@ -28,6 +28,8 @@
 		3D248CA8191EC62300583553 /* Show_Tile_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D248CA7191EC62300583553 /* Show_Tile_Background.png */; };
 		3D599B4A191EDDC3001E890D /* PCThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D599B49191EDDC3001E890D /* PCThumbnailView.m */; };
 		3D599B4D191EF873001E890D /* PCProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D599B4C191EF873001E890D /* PCProgram.m */; };
+		3D599B50191EFC66001E890D /* PCAPIServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D599B4F191EFC66001E890D /* PCAPIServer.m */; };
+		3D599B53191F0799001E890D /* PCSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D599B52191F0799001E890D /* PCSection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,10 @@
 		3D599B49191EDDC3001E890D /* PCThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCThumbnailView.m; sourceTree = "<group>"; };
 		3D599B4B191EF873001E890D /* PCProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCProgram.h; sourceTree = "<group>"; };
 		3D599B4C191EF873001E890D /* PCProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCProgram.m; sourceTree = "<group>"; };
+		3D599B4E191EFC66001E890D /* PCAPIServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAPIServer.h; sourceTree = "<group>"; };
+		3D599B4F191EFC66001E890D /* PCAPIServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAPIServer.m; sourceTree = "<group>"; };
+		3D599B51191F0799001E890D /* PCSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCSection.h; sourceTree = "<group>"; };
+		3D599B52191F0799001E890D /* PCSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCSection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,8 @@
 		3D248C6D191EBC1C00583553 /* PeelCC */ = {
 			isa = PBXGroup;
 			children = (
+				3D599B4E191EFC66001E890D /* PCAPIServer.h */,
+				3D599B4F191EFC66001E890D /* PCAPIServer.m */,
 				3D248C76191EBC1C00583553 /* PCAppDelegate.h */,
 				3D248C77191EBC1C00583553 /* PCAppDelegate.m */,
 				3D248C79191EBC1C00583553 /* Main_iPhone.storyboard */,
@@ -143,6 +151,8 @@
 				3D599B49191EDDC3001E890D /* PCThumbnailView.m */,
 				3D599B4B191EF873001E890D /* PCProgram.h */,
 				3D599B4C191EF873001E890D /* PCProgram.m */,
+				3D599B51191F0799001E890D /* PCSection.h */,
+				3D599B52191F0799001E890D /* PCSection.m */,
 			);
 			path = PeelCC;
 			sourceTree = "<group>";
@@ -297,6 +307,8 @@
 				3D248C74191EBC1C00583553 /* main.m in Sources */,
 				3D248C81191EBC1C00583553 /* PCViewController.m in Sources */,
 				3D599B4A191EDDC3001E890D /* PCThumbnailView.m in Sources */,
+				3D599B50191EFC66001E890D /* PCAPIServer.m in Sources */,
+				3D599B53191F0799001E890D /* PCSection.m in Sources */,
 				3D248C78191EBC1C00583553 /* PCAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

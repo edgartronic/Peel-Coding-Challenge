@@ -8,6 +8,7 @@
 
 #import "PCViewController.h"
 #import "PCThumbnailView.h"
+#import "PCAPIServer.h"
 
 @interface PCViewController () {
     NSArray *arr;
@@ -34,6 +35,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     arr = [NSArray arrayWithObjects: @"Comedy", @"Drama", @"Kids", @"News", @"Music & Dance", @"Documentary", @"War", nil];
+    PCAPIServer *api = [PCAPIServer new];
+    NSArray *data = [api parseJSONData];
+    NSLog(@"data: %@", data);
     
 }
 

@@ -7,27 +7,6 @@
 //
 
 #import "PCProgram.h"
-#define KEY_PROGRAM @"program"
-#define KEY_PROGRAM_TITLE @"11"
-#define KEY_THUMBNAIL_URL @"14"
-#define KEY_THUMBNAIL_ALT_URL @"21"
-#define KEY_SECTION_TYPE @"13"
-
-#define VALUE_PROGRAM_TYPE_DRAMA @"Drama"
-#define VALUE_PROGRAM_TYPE_COMEDY @"Comedy"
-#define VALUE_PROGRAM_TYPE_KIDS @"Kids"
-#define VALUE_PROGRAM_TYPE_NEWS @"News"
-#define VALUE_PROGRAM_TYPE_ANIMATION @"Animation"
-#define VALUE_PROGRAM_TYPE_BUSINESS @"Business"
-#define VALUE_PROGRAM_TYPE_DOCUMENTARY @"Documentary"
-#define VALUE_PROGRAM_TYPE_ENTERTAINMENT @"Entertainment"
-#define VALUE_PROGRAM_TYPE_GAMESHOW @"Game show"
-#define VALUE_PROGRAM_TYPE_LIFESTYLE @"Lifestyle"
-#define VALUE_PROGRAM_TYPE_MUSIC @"Music and dance"
-#define VALUE_PROGRAM_TYPE_NONFICTION @"NonFiction"
-#define VALUE_PROGRAM_TYPE_REALITY @"Reality"
-#define VALUE_PROGRAM_TYPE_TALK @"Talk"
-#define VALUE_PROGRAM_TYPE_WAR @"War"
 
 @implementation PCProgram
 
@@ -43,6 +22,7 @@
         self.programTitle = [[_dict objectForKey: KEY_PROGRAM] objectForKey: KEY_PROGRAM_TITLE];
         
         NSString *thumbURL = [[_dict objectForKey: KEY_PROGRAM] objectForKey: KEY_THUMBNAIL_URL];
+        
         if (!thumbURL) {
             thumbURL = [_dict objectForKey: KEY_THUMBNAIL_ALT_URL];
         }
