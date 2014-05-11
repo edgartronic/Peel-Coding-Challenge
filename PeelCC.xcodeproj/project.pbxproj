@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D156C34191F4370001D6A14 /* DefaultIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D156C33191F4370001D6A14 /* DefaultIcon.png */; };
 		3D248C68191EBC1C00583553 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D248C67191EBC1C00583553 /* Foundation.framework */; };
 		3D248C6A191EBC1C00583553 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D248C69191EBC1C00583553 /* CoreGraphics.framework */; };
 		3D248C6C191EBC1C00583553 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D248C6B191EBC1C00583553 /* UIKit.framework */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D156C33191F4370001D6A14 /* DefaultIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultIcon.png; sourceTree = "<group>"; };
 		3D248C64191EBC1C00583553 /* PeelCC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeelCC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D248C67191EBC1C00583553 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3D248C69191EBC1C00583553 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -191,6 +193,7 @@
 		3D248CA2191EC24A00583553 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3D156C33191F4370001D6A14 /* DefaultIcon.png */,
 				3D248CA7191EC62300583553 /* Show_Tile_Background.png */,
 				3D248CA3191EC24A00583553 /* App_Background.jpg */,
 			);
@@ -277,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D156C34191F4370001D6A14 /* DefaultIcon.png in Resources */,
 				3D248C7E191EBC1C00583553 /* Main_iPad.storyboard in Resources */,
 				3D248C83191EBC1D00583553 /* Images.xcassets in Resources */,
 				3D248C7B191EBC1C00583553 /* Main_iPhone.storyboard in Resources */,

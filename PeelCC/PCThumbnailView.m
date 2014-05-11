@@ -47,7 +47,7 @@
         UIImage *img;
         
         if (!self.imageURLString) {
-            img = [UIImage imageNamed: @"DefaultThumbnail.png"];
+            img = [UIImage imageNamed: @"DefaultIcon.png"];
             
         } else {
             NSURL *url = [NSURL URLWithString: self.imageURLString];
@@ -61,7 +61,12 @@
             imgView.frame = CGRectMake(0, 0, 110, 147);
             imgView.alpha = 0.0;
             imgView.image = img;
-            imgView.contentMode = UIViewContentModeScaleAspectFit;
+            if (img.size.width < self.frame.size.width) {
+                imgView.contentMode = UIViewContentModeCenter;
+            } else {
+                imgView.contentMode = UIViewContentModeScaleAspectFit;
+            }
+
             [self addSubview: imgView];
             
             [spinner stopAnimating];
