@@ -23,6 +23,7 @@
         bgView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         [self addSubview: bgView];
         self.imageURLString = _urlString;
+
     }
     return self;
 }

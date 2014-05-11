@@ -27,6 +27,7 @@
 		3D248CA6191EC5FE00583553 /* JSON-Response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3D248CA5191EC5FE00583553 /* JSON-Response.txt */; };
 		3D248CA8191EC62300583553 /* Show_Tile_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D248CA7191EC62300583553 /* Show_Tile_Background.png */; };
 		3D599B4A191EDDC3001E890D /* PCThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D599B49191EDDC3001E890D /* PCThumbnailView.m */; };
+		3D599B4D191EF873001E890D /* PCProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D599B4C191EF873001E890D /* PCProgram.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		3D248CA7191EC62300583553 /* Show_Tile_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Show_Tile_Background.png; sourceTree = "<group>"; };
 		3D599B48191EDDC3001E890D /* PCThumbnailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCThumbnailView.h; sourceTree = "<group>"; };
 		3D599B49191EDDC3001E890D /* PCThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCThumbnailView.m; sourceTree = "<group>"; };
+		3D599B4B191EF873001E890D /* PCProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCProgram.h; sourceTree = "<group>"; };
+		3D599B4C191EF873001E890D /* PCProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCProgram.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,8 @@
 				3D248CA0191EC16000583553 /* PCNavController.m */,
 				3D599B48191EDDC3001E890D /* PCThumbnailView.h */,
 				3D599B49191EDDC3001E890D /* PCThumbnailView.m */,
+				3D599B4B191EF873001E890D /* PCProgram.h */,
+				3D599B4C191EF873001E890D /* PCProgram.m */,
 			);
 			path = PeelCC;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D248CA1191EC16000583553 /* PCNavController.m in Sources */,
+				3D599B4D191EF873001E890D /* PCProgram.m in Sources */,
 				3D248C74191EBC1C00583553 /* main.m in Sources */,
 				3D248C81191EBC1C00583553 /* PCViewController.m in Sources */,
 				3D599B4A191EDDC3001E890D /* PCThumbnailView.m in Sources */,

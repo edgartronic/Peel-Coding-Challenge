@@ -46,6 +46,8 @@
     self.programTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.programTableView.backgroundColor = [UIColor clearColor];
     self.programTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.programTableView.delegate = self;
+    self.programTableView.dataSource = self;
     
 }
 
@@ -73,6 +75,7 @@
     NSString *sectionName = [NSString stringWithFormat: @"%@", [arr objectAtIndex: indexPath.row]];
     UILabel *sectionLabel;
     UIScrollView *sectionScroll;
+    PCThumbnailView *thumbnail;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
@@ -89,11 +92,11 @@
         sectionLabel.font = [UIFont italicSystemFontOfSize: 16];
         
         sectionScroll = [[UIScrollView alloc] initWithFrame: CGRectMake(self.view.frame.origin.x + 10, self.view.frame.origin.y + 5 + sectionLabel.frame.size.height, self.view.frame.size.width - 20, 150)];
+        sectionScroll.delegate = self;
         sectionScroll.tag = 5678;
         sectionScroll.backgroundColor = [UIColor clearColor];
         
-
-        PCThumbnailView *thumbnail = [[PCThumbnailView alloc] initWithURLString: @"http://image.zelfy.com/uscanadaimages/db_photos/showcards/h5/AllPhotos/9536756/p9536756_b_h5_ab.jpg"];
+        thumbnail = [[PCThumbnailView alloc] initWithURLString: @"http://image.zelfy.com/uscanadaimages/db_photos/showcards/h5/AllPhotos/9536756/p9536756_b_h5_ab.jpg"];
         
         [sectionScroll addSubview: thumbnail];
         
@@ -104,6 +107,7 @@
         
         sectionLabel = (UILabel *)[self.view viewWithTag: 1234];
         sectionScroll = (UIScrollView *)[self.view viewWithTag: 5678];
+
     }
     
     return cell;
