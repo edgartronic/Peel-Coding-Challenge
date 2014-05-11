@@ -18,11 +18,13 @@
 }
 
 - (UIScrollView *) createScrollViewForSection: (PCSection *) section withFrame: (CGRect) frame;
+- (void) buildUI;
 
 @end
 
 @implementation PCViewController
 
+@synthesize mainScroll;
 
 #pragma mark -
 #pragma mark View controller methods
@@ -37,16 +39,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
+
+    self.mainScroll.delegate = self;
     self.mainScroll.backgroundColor = [UIColor clearColor];
     self.mainScroll.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
+    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     PCAPIServer *api = [PCAPIServer new];
     arr = [api parseJSONData];
-    NSInteger yOrigin = self.view.frame.origin.y + 5;
+    
+    [self buildUI];
+    
+    NSNotification *checkForLoadingNote = [NSNotification notificationWithName: @"checkForLoadingNotification" object: nil];
+    [[NSNotificationCenter defaultCenter] postNotification: checkForLoadingNote];
+    
+}
 
+- (void) viewWillAppear:(BOOL)animated {
+    
+    self.title = @"TV SHOWS";
+    self.view.backgroundColor = GRAY_COLOR;
+    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void) buildUI {
+    
+    NSInteger yOrigin = self.view.frame.origin.y + 5;
+    
     for (PCSection *section in arr) {
         
         UILabel *sectionLabel = [[UILabel alloc] initWithFrame: CGRectMake(self.view.frame.origin.x + 10, yOrigin, self.view.frame.size.width - 20, 30)];
@@ -65,26 +92,11 @@
         UIScrollView *sectionScroll = [self createScrollViewForSection: section withFrame: scrollRect];
         [self.mainScroll addSubview: sectionScroll];
         yOrigin = yOrigin + sectionScroll.frame.size.height + 10;
-
+        
         
     }
     self.mainScroll.contentSize = CGSizeMake(self.view.frame.size.width, yOrigin + 70);
-    
-}
-
-- (void) viewWillAppear:(BOOL)animated {
-    
-    self.title = @"TV SHOWS";
-    self.view.backgroundColor = GRAY_COLOR;
-    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+   
 }
 
 
@@ -105,7 +117,8 @@
         thumbnail.frame = CGRectMake(xOrigin, 5, thumbnail.frame.size.width, thumbnail.frame.size.height);
         
         [scroll addSubview: thumbnail];
-
+        [thumbnail loadThumbnail];
+        
         UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(xOrigin, thumbnail.frame.origin.y + thumbnail.frame.size.height + 5, thumbnail.frame.size.width, 25)];
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor whiteColor];
@@ -113,6 +126,7 @@
         label.numberOfLines = 2;
         label.font = [UIFont systemFontOfSize: 10];
         label.text = program.programTitle;
+        
 
         
         [scroll addSubview: label];

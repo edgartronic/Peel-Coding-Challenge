@@ -23,12 +23,15 @@
         bgView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         [self addSubview: bgView];
         self.imageURLString = _urlString;
+        self.loaded = NO;
+        
 
     }
     return self;
 }
 
-- (void) willMoveToSuperview:(UIView *)newSuperview {
+
+- (void) loadThumbnail {
     
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame: CGRectMake(0, 0, 50, 50)];
     spinner.center = self.center;
@@ -68,6 +71,7 @@
                 imgView.alpha = 1.0;
             }];
             
+            self.loaded = YES;
             
         });
         
