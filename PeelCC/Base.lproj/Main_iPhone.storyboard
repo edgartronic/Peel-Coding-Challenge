@@ -16,11 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="App_Background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="E90-v6-8OR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App_Background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="E90-v6-8OR">
                                 <rect key="frame" x="-6" y="0.0" width="326" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V6h-cZ-F2b">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V6h-cZ-F2b">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
@@ -29,6 +29,16 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V6h-cZ-F2b" firstAttribute="top" secondItem="E90-v6-8OR" secondAttribute="top" id="0C9-pq-zDa"/>
+                            <constraint firstAttribute="trailing" secondItem="E90-v6-8OR" secondAttribute="trailing" id="4ya-Mg-Pfd"/>
+                            <constraint firstAttribute="bottom" secondItem="V6h-cZ-F2b" secondAttribute="bottom" id="7pV-v2-itk"/>
+                            <constraint firstItem="V6h-cZ-F2b" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="7su-mB-DWF"/>
+                            <constraint firstItem="E90-v6-8OR" firstAttribute="trailing" secondItem="V6h-cZ-F2b" secondAttribute="trailing" id="SO8-Fp-9QF"/>
+                            <constraint firstItem="V6h-cZ-F2b" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="UdH-8b-6TL"/>
+                            <constraint firstItem="E90-v6-8OR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="-6" id="wLh-ZC-Dzd"/>
+                            <constraint firstItem="V6h-cZ-F2b" firstAttribute="bottom" secondItem="E90-v6-8OR" secondAttribute="bottom" id="wYd-tu-cK9"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="51r-hF-0LU"/>
                     <connections>
