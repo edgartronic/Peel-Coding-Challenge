@@ -20,21 +20,19 @@
                                 <rect key="frame" x="-6" y="0.0" width="326" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ecf-27-ENz">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V6h-cZ-F2b">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="9Rw-OF-XQg"/>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="ljc-v5-ngQ"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="3u8-yi-Sxg"/>
                                 </connections>
-                            </tableView>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="51r-hF-0LU"/>
                     <connections>
-                        <outlet property="programTableView" destination="ecf-27-ENz" id="4m5-Qr-vnJ"/>
+                        <outlet property="mainScroll" destination="V6h-cZ-F2b" id="t8F-mA-5bh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

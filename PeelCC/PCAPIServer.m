@@ -93,10 +93,19 @@
 
 - (void) initializeSections {
     resultArray = [NSMutableArray array];
+    
     sectionDrama = [PCSection new];
+    sectionDrama.sectionName = @"Drama";
+    
     sectionComedy = [PCSection new];
+    sectionComedy.sectionName = @"Comedy";
+    
     sectionKids = [PCSection new];
+    sectionKids.sectionName = @"Kids";
+    
     sectionNews = [PCSection new];
+    sectionNews.sectionName = @"News";
+    
     sectionAnimation = [PCSection new];
     sectionBusiness = [PCSection new];
     sectionDocumentary = [PCSection new];
@@ -108,7 +117,9 @@
     sectionReality = [PCSection new];
     sectionTalk = [PCSection new];
     sectionWar = [PCSection new];
+    
     sectionOther = [PCSection new];
+    sectionOther.sectionName = @"Other";
 }
 
 - (void) addProgram: (PCProgram *) programToAdd {

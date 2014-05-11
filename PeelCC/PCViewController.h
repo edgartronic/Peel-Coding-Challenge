@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PCViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface PCViewController : UIViewController <UIScrollViewDelegate>
 
-@property (nonatomic, strong) IBOutlet UITableView *programTableView;
+@property (nonatomic, strong) IBOutlet UIScrollView *mainScroll;
 
 @end

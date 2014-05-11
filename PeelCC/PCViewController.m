@@ -9,11 +9,15 @@
 #import "PCViewController.h"
 #import "PCThumbnailView.h"
 #import "PCAPIServer.h"
+#import "PCSection.h"
+#import "PCProgram.h"
 
 @interface PCViewController () {
     NSArray *arr;
+    NSMutableArray *scrollViewsArray;
 }
 
+- (UIScrollView *) createScrollViewForSection: (PCSection *) section withFrame: (CGRect) frame;
 
 @end
 
@@ -25,7 +29,7 @@
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self == [super initWithNibName: nibNameOrNil bundle: nibBundleOrNil]) {
-        
+        scrollViewsArray = [NSMutableArray array];
     }
     return self;
 }
@@ -33,11 +37,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    arr = [NSArray arrayWithObjects: @"Comedy", @"Drama", @"Kids", @"News", @"Music & Dance", @"Documentary", @"War", nil];
+    
+    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    self.mainScroll.backgroundColor = [UIColor blueColor];
+    self.mainScroll.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
     PCAPIServer *api = [PCAPIServer new];
-    NSArray *data = [api parseJSONData];
-    NSLog(@"data: %@", data);
+    arr = [api parseJSONData];
+    NSInteger yOrigin = self.view.frame.origin.y + 5;
+
+    for (PCSection *section in arr) {
+        
+        UILabel *sectionLabel = [[UILabel alloc] initWithFrame: CGRectMake(self.view.frame.origin.x + 10, yOrigin, self.view.frame.size.width - 20, 30)];
+        sectionLabel.tag = 1234;
+        sectionLabel.text = section.sectionName;
+        sectionLabel.backgroundColor = [UIColor redColor];
+        sectionLabel.textColor = YELLOW_COLOR;
+        sectionLabel.font = [UIFont italicSystemFontOfSize: 16];
+        
+        [self.mainScroll addSubview: sectionLabel];
+        
+        yOrigin = yOrigin + sectionLabel.frame.size.height + 5;
+        
+        CGRect scrollRect = CGRectMake(sectionLabel.frame.origin.x, yOrigin, self.view.frame.size.width - 20, 190);
+        
+        UIScrollView *sectionScroll = [self createScrollViewForSection: section withFrame: scrollRect];
+        [self.mainScroll addSubview: sectionScroll];
+        yOrigin = yOrigin + sectionScroll.frame.size.height + 10;
+
+        
+    }
+    self.mainScroll.contentSize = CGSizeMake(self.view.frame.size.width, yOrigin);
     
 }
 
@@ -47,11 +78,6 @@
     self.view.backgroundColor = GRAY_COLOR;
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    self.programTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.programTableView.backgroundColor = [UIColor clearColor];
-    self.programTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.programTableView.delegate = self;
-    self.programTableView.dataSource = self;
     
 }
 
@@ -61,60 +87,44 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark -
-#pragma mark Table view callbacks
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return arr.count;
-}
-
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 200.0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *simpleTableIdentifier = @"SectionCell";
-    NSString *sectionName = [NSString stringWithFormat: @"%@", [arr objectAtIndex: indexPath.row]];
-    UILabel *sectionLabel;
-    UIScrollView *sectionScroll;
-    PCThumbnailView *thumbnail;
+- (UIScrollView *) createScrollViewForSection: (PCSection *) section withFrame:(CGRect)frame {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-        cell.backgroundColor = [UIColor clearColor];
-        
-        sectionLabel = [[UILabel alloc] initWithFrame: CGRectMake(self.view.frame.origin.x + 10, self.view.frame.origin.y + 5, self.view.frame.size.width - 20, 30)];
-        sectionLabel.tag = 1234;
-        sectionLabel.text = sectionName;
-        sectionLabel.backgroundColor = [UIColor clearColor];
-        sectionLabel.textColor = YELLOW_COLOR;
-        sectionLabel.font = [UIFont italicSystemFontOfSize: 16];
-        
-        sectionScroll = [[UIScrollView alloc] initWithFrame: CGRectMake(self.view.frame.origin.x + 10, self.view.frame.origin.y + 5 + sectionLabel.frame.size.height, self.view.frame.size.width - 20, 150)];
-        sectionScroll.delegate = self;
-        sectionScroll.tag = 5678;
-        sectionScroll.backgroundColor = [UIColor clearColor];
-        
-        thumbnail = [[PCThumbnailView alloc] initWithURLString: @"http://image.zelfy.com/uscanadaimages/db_photos/showcards/h5/AllPhotos/9536756/p9536756_b_h5_ab.jpg"];
-        
-        [sectionScroll addSubview: thumbnail];
-        
-        [cell.contentView addSubview: sectionLabel];
-        [cell.contentView addSubview: sectionScroll];
-        
-    } else {
-        
-        sectionLabel = (UILabel *)[self.view viewWithTag: 1234];
-        sectionScroll = (UIScrollView *)[self.view viewWithTag: 5678];
 
+    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame: frame];
+    scroll.delegate = self;
+    scroll.tag = 5678;
+    scroll.backgroundColor = [UIColor greenColor];
+    
+    NSInteger xOrigin = 5;
+    
+    for (PCProgram *program in section.shows) {
+        
+        PCThumbnailView *thumbnail = [[PCThumbnailView alloc] initWithURLString: program.thumbnailURL];
+        thumbnail.frame = CGRectMake(xOrigin, 5, thumbnail.frame.size.width, thumbnail.frame.size.height);
+        
+        [scroll addSubview: thumbnail];
+
+        UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(xOrigin, thumbnail.frame.origin.y + thumbnail.frame.size.height + 10, thumbnail.frame.size.width, 20)];
+        label.backgroundColor = [UIColor darkGrayColor];
+        label.textColor = [UIColor whiteColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.numberOfLines = 2;
+        label.font = [UIFont systemFontOfSize: 12];
+        label.text = program.programTitle;
+
+        
+        [scroll addSubview: label];
+        
+        xOrigin = xOrigin + thumbnail.frame.size.width + 10;
+
+        
     }
     
-    return cell;
+    scroll.contentSize = CGSizeMake(xOrigin, scroll.frame.size.height);
+
+    return scroll;
+    
 }
 
 @end
