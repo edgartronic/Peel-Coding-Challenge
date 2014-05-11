@@ -107,16 +107,37 @@
     sectionNews.sectionName = @"News";
     
     sectionAnimation = [PCSection new];
+    sectionAnimation.sectionName = @"Animation";
+    
     sectionBusiness = [PCSection new];
+    sectionBusiness.sectionName = @"Business";
+    
     sectionDocumentary = [PCSection new];
+    sectionDocumentary.sectionName = @"Documentary";
+    
     sectionEntertainment = [PCSection new];
+    sectionEntertainment.sectionName = @"Entertainment";
+    
     sectionGameShow = [PCSection new];
+    sectionGameShow.sectionName = @"Game Shows";
+    
     sectionLifestyle = [PCSection new];
+    sectionLifestyle.sectionName = @"Lifestyle";
+    
     sectionMusicAndDance = [PCSection new];
+    sectionMusicAndDance.sectionName = @"Music & Dance";
+    
     sectionNonFiction = [PCSection new];
+    sectionNonFiction.sectionName = @"Non-Fiction";
+    
     sectionReality = [PCSection new];
+    sectionReality.sectionName = @"Reality";
+    
     sectionTalk = [PCSection new];
+    sectionTalk.sectionName = @"Talk";
+    
     sectionWar = [PCSection new];
+    sectionWar.sectionName = @"War";
     
     sectionOther = [PCSection new];
     sectionOther.sectionName = @"Other";
@@ -136,7 +157,39 @@
     if (programToAdd.sectionType == (PCProgramSectionType *) PCProgramSectionTypeKids) {
         [sectionKids.shows addObject: programToAdd];
     }
-    
+    if (programToAdd.sectionType == (PCProgramSectionType *) PCProgramSectionTypeAnimation) {
+        [sectionAnimation.shows addObject: programToAdd];
+    }
+    if (programToAdd.sectionType == (PCProgramSectionType *) PCProgramSectionTypeBusiness) {
+        [sectionBusiness.shows addObject: programToAdd];
+    }
+    if (programToAdd.sectionType == (PCProgramSectionType *) PCProgramSectionTypeDocumentary) {
+        [sectionDocumentary.shows addObject: programToAdd];
+    }
+    if (programToAdd.sectionType == (PCProgramSectionType *) PCProgramSectionTypeEntertainment) {
+        [sectionEntertainment.shows addObject: programToAdd];
+    }
+    if (programToAdd.sectionType == (PCProgramSectionType *) PCProgramSectionTypeGameShow) {
+        [sectionGameShow.shows addObject: programToAdd];
+    }
+    if (programToAdd.sectionType == (PCProgramSectionType *) PCProgramSectionTypeLifestyle) {
+        [sectionLifestyle.shows addObject: programToAdd];
+    }
+    if (programToAdd.sectionType == (PCProgramSectionType *) PCProgramSectionTypeMusicAndDance) {
+        [sectionMusicAndDance.shows addObject: programToAdd];
+    }
+    if (programToAdd.sectionType == (PCProgramSectionType *) PCProgramSectionTypeNonFiction) {
+        [sectionNonFiction.shows addObject: programToAdd];
+    }
+    if (programToAdd.sectionType == (PCProgramSectionType *) PCProgramSectionTypeReality) {
+        [sectionReality.shows addObject: programToAdd];
+    }
+    if (programToAdd.sectionType == (PCProgramSectionType *) PCProgramSectionTypeTalk) {
+        [sectionTalk.shows addObject: programToAdd];
+    }
+    if (programToAdd.sectionType == (PCProgramSectionType *) PCProgramSectionTypeWar) {
+        [sectionWar.shows addObject: programToAdd];
+    }
     if (programToAdd.sectionType == (PCProgramSectionType *) PCProgramSectionTypeOther) {
         [sectionOther.shows addObject: programToAdd];
     }
@@ -155,6 +208,39 @@
     }
     if (sectionKids.shows.count > 0) {
         [resultArray addObject: sectionKids];
+    }
+    if (sectionAnimation.shows.count > 0) {
+        [resultArray addObject: sectionAnimation];
+    }
+    if (sectionBusiness.shows.count > 0) {
+        [resultArray addObject: sectionBusiness];
+    }
+    if (sectionDocumentary.shows.count > 0) {
+        [resultArray addObject: sectionDocumentary];
+    }
+    if (sectionEntertainment.shows.count > 0) {
+        [resultArray addObject: sectionEntertainment];
+    }
+    if (sectionGameShow.shows.count > 0) {
+        [resultArray addObject: sectionGameShow];
+    }
+    if (sectionLifestyle.shows.count > 0) {
+        [resultArray addObject: sectionLifestyle];
+    }
+    if (sectionNonFiction.shows.count > 0) {
+        [resultArray addObject: sectionNonFiction];
+    }
+    if (sectionMusicAndDance.shows.count > 0) {
+        [resultArray addObject: sectionMusicAndDance];
+    }
+    if (sectionReality.shows.count > 0) {
+        [resultArray addObject: sectionReality];
+    }
+    if (sectionTalk.shows.count > 0) {
+        [resultArray addObject: sectionTalk];
+    }
+    if (sectionWar.shows.count > 0) {
+        [resultArray addObject: sectionWar];
     }
     if (sectionOther.shows.count > 0) {
         [resultArray addObject: sectionOther];

@@ -40,7 +40,7 @@
     
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    self.mainScroll.backgroundColor = [UIColor blueColor];
+    self.mainScroll.backgroundColor = [UIColor clearColor];
     self.mainScroll.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     PCAPIServer *api = [PCAPIServer new];
@@ -52,7 +52,7 @@
         UILabel *sectionLabel = [[UILabel alloc] initWithFrame: CGRectMake(self.view.frame.origin.x + 10, yOrigin, self.view.frame.size.width - 20, 30)];
         sectionLabel.tag = 1234;
         sectionLabel.text = section.sectionName;
-        sectionLabel.backgroundColor = [UIColor redColor];
+        sectionLabel.backgroundColor = [UIColor clearColor];
         sectionLabel.textColor = YELLOW_COLOR;
         sectionLabel.font = [UIFont italicSystemFontOfSize: 16];
         
@@ -68,7 +68,7 @@
 
         
     }
-    self.mainScroll.contentSize = CGSizeMake(self.view.frame.size.width, yOrigin);
+    self.mainScroll.contentSize = CGSizeMake(self.view.frame.size.width, yOrigin + 70);
     
 }
 
@@ -92,9 +92,10 @@
     
 
     UIScrollView *scroll = [[UIScrollView alloc] initWithFrame: frame];
+    scroll.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     scroll.delegate = self;
     scroll.tag = 5678;
-    scroll.backgroundColor = [UIColor greenColor];
+    scroll.backgroundColor = [UIColor clearColor];
     
     NSInteger xOrigin = 5;
     
@@ -105,12 +106,12 @@
         
         [scroll addSubview: thumbnail];
 
-        UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(xOrigin, thumbnail.frame.origin.y + thumbnail.frame.size.height + 10, thumbnail.frame.size.width, 20)];
-        label.backgroundColor = [UIColor darkGrayColor];
+        UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(xOrigin, thumbnail.frame.origin.y + thumbnail.frame.size.height + 5, thumbnail.frame.size.width, 25)];
+        label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor whiteColor];
         label.textAlignment = NSTextAlignmentCenter;
         label.numberOfLines = 2;
-        label.font = [UIFont systemFontOfSize: 12];
+        label.font = [UIFont systemFontOfSize: 10];
         label.text = program.programTitle;
 
         
