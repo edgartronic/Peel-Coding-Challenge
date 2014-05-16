@@ -15,6 +15,7 @@
 @interface PCViewController () {
     NSArray *arr;
     NSMutableArray *scrollViewsArray;
+    UIActivityIndicatorView *loader;
 }
 
 - (UIScrollView *) createScrollViewForSection: (PCSection *) section withFrame: (CGRect) frame;
@@ -46,13 +47,34 @@
 
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    PCAPIServer *api = [PCAPIServer new];
-    arr = [api parseJSONData];
+    loader = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    loader.frame = CGRectMake(0, 0, 100, 100);
+    loader.center = self.view.center;
+    [self.view addSubview: loader];
+    [loader startAnimating];
     
-    [self buildUI];
+    dispatch_queue_t dataLoader = dispatch_queue_create("Data Loader", NULL);
     
-    NSNotification *checkForLoadingNote = [NSNotification notificationWithName: @"checkForLoadingNotification" object: nil];
-    [[NSNotificationCenter defaultCenter] postNotification: checkForLoadingNote];
+    dispatch_async(dataLoader, ^ {
+        
+        PCAPIServer *api = [PCAPIServer new];
+        arr = [api parseJSONData];
+        
+        dispatch_async(dispatch_get_main_queue(), ^ {
+           
+            [self buildUI];
+            
+            NSNotification *checkForLoadingNote = [NSNotification notificationWithName: @"checkForLoadingNotification" object: nil];
+            [[NSNotificationCenter defaultCenter] postNotification: checkForLoadingNote];
+            
+        });
+        
+    });
+    
+//    [self buildUI];
+//    
+//    NSNotification *checkForLoadingNote = [NSNotification notificationWithName: @"checkForLoadingNotification" object: nil];
+//    [[NSNotificationCenter defaultCenter] postNotification: checkForLoadingNote];
     
 }
 
@@ -72,7 +94,7 @@
 
 - (void) buildUI {
     
-    NSInteger yOrigin = self.view.frame.origin.y + 5;
+    NSInteger yOrigin = 0;
     
     for (PCSection *section in arr) {
         
@@ -95,7 +117,11 @@
         
         
     }
-    self.mainScroll.contentSize = CGSizeMake(self.view.frame.size.width, yOrigin + 70);
+    self.mainScroll.contentSize = CGSizeMake(self.view.frame.size.width, yOrigin);
+    
+    [loader stopAnimating];
+    [loader removeFromSuperview];
+    loader = nil;
    
 }
 
